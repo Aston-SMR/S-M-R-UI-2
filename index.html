@@ -26,20 +26,17 @@
   }
 
   * { box-sizing: border-box; }
-
   body {
     margin: 0;
     font-family: Arial, "Microsoft JhengHei", sans-serif;
     background: var(--bg);
     color: var(--text);
   }
-
   .container {
     max-width: 760px;
     margin: 0 auto;
     padding: 14px;
   }
-
   .panel {
     background: var(--card);
     border: 1px solid var(--border);
@@ -47,29 +44,18 @@
     box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
     padding: 14px;
   }
-
   .top-box {
     display: flex;
     gap: 12px;
   }
-
   .side {
     flex: 1;
     border-radius: 16px;
     padding: 12px;
     border: 2px solid transparent;
   }
-
-  .player-side {
-    background: var(--player-bg);
-    border-color: var(--player-border);
-  }
-
-  .banker-side {
-    background: var(--banker-bg);
-    border-color: var(--banker-border);
-  }
-
+  .player-side { background: var(--player-bg); border-color: var(--player-border); }
+  .banker-side { background: var(--banker-bg); border-color: var(--banker-border); }
   .title {
     font-size: 18px;
     font-weight: 700;
@@ -77,7 +63,6 @@
     margin-bottom: 10px;
     text-align: center;
   }
-
   .sub-title {
     display: block;
     font-size: 12px;
@@ -85,13 +70,11 @@
     font-weight: 600;
     margin-top: 3px;
   }
-
   .grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 8px;
   }
-
   .cell {
     height: 62px;
     border: 2px solid #d6dce8;
@@ -103,11 +86,8 @@
     font-size: 24px;
     font-weight: 700;
     cursor: pointer;
-    transition: 0.15s ease;
     user-select: none;
   }
-
-  .cell:hover { transform: translateY(-1px); }
   .cell.empty::after { font-size: 12px; font-weight: 600; color: #94a3b8; }
   .cell.p1.empty::after { content: 'P1'; }
   .cell.p2.empty::after { content: 'P2'; }
@@ -116,14 +96,13 @@
   .cell.b2.empty::after { content: 'B2'; }
   .cell.b3.empty::after { content: 'B3'; }
   .span2 { grid-column: 1 / span 2; }
-
   .active {
     background: var(--active);
     border-color: var(--active-border);
     box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.15);
   }
-
   .result-card,
+  .buttons-wrap,
   .smr-card,
   .history-card {
     margin-top: 14px;
@@ -132,9 +111,7 @@
     border-radius: 16px;
     padding: 14px;
   }
-
   .score-row,
-  .smr-head,
   .history-head {
     display: flex;
     align-items: center;
@@ -142,14 +119,12 @@
     gap: 10px;
     flex-wrap: wrap;
   }
-
   .score-main {
     display: flex;
     align-items: center;
     gap: 10px;
     flex-wrap: wrap;
   }
-
   .score-badge {
     min-width: 92px;
     padding: 8px 12px;
@@ -159,15 +134,12 @@
     text-align: center;
     background: #eef2ff;
   }
-
   .score-badge.player { color: var(--win-player); }
   .score-badge.banker { color: var(--win-banker); background: #fff1f2; }
-
   .winner-text { font-size: 24px; font-weight: 800; letter-spacing: 0.5px; }
   .winner-player { color: var(--win-player); }
   .winner-banker { color: var(--win-banker); }
   .winner-tie { color: var(--win-tie); }
-
   .clear-btn-inline,
   .next-btn,
   .history-clear-btn {
@@ -180,10 +152,8 @@
     font-weight: 700;
     cursor: pointer;
   }
-
   .next-btn { background: #eff6ff; color: #1d4ed8; border-color: #bfdbfe; }
   .history-clear-btn { background: #fff1f2; color: #b91c1c; border-color: #fecdd3; }
-
   .detail-text {
     margin-top: 10px;
     text-align: left;
@@ -191,67 +161,19 @@
     line-height: 1.5;
     color: #334155;
   }
-
-  .detail-label,
-  .section-title {
+  .section-title,
+  .detail-label {
     font-size: 12px;
     font-weight: 700;
     color: #64748b;
     margin-bottom: 6px;
   }
-
-  .smr-grid {
-    margin-top: 10px;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
-  }
-
-  .smr-box {
-    background: var(--smr-bg);
-    border: 1px solid var(--border);
-    border-radius: 14px;
-    padding: 12px;
-  }
-
-  .smr-name {
-    font-size: 13px;
-    color: var(--muted);
-    font-weight: 700;
-    margin-bottom: 6px;
-  }
-
-  .smr-pick {
-    font-size: 22px;
-    font-weight: 800;
-    margin-bottom: 4px;
-  }
-
-  .smr-meta {
-    font-size: 13px;
-    color: #475569;
-    line-height: 1.45;
-    white-space: pre-line;
-  }
-
-  .pick-player { color: var(--win-player); }
-  .pick-banker { color: var(--win-banker); }
-  .pick-tie { color: var(--win-tie); }
-  .pick-pending { color: #64748b; }
-
-  .buttons-wrap {
-    margin-top: 16px;
-  }
-
   .buttons {
-    margin-top: 16px;
     display: grid;
     grid-template-columns: repeat(7, minmax(0, 1fr));
-    grid-template-rows: repeat(2, auto);
     gap: 6px;
     width: 100%;
   }
-
   button.key {
     border: 1px solid #cfd8e3;
     background: #ffffff;
@@ -263,9 +185,40 @@
     cursor: pointer;
     min-height: 46px;
   }
-
   .skip-key { background: #f3f4f6 !important; color: #4b5563 !important; }
-
+  .smr-grid {
+    margin-top: 10px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
+  .smr-box {
+    background: var(--smr-bg);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 12px;
+  }
+  .smr-name {
+    font-size: 13px;
+    color: var(--muted);
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+  .smr-pick {
+    font-size: 22px;
+    font-weight: 800;
+    margin-bottom: 4px;
+  }
+  .smr-meta {
+    font-size: 13px;
+    color: #475569;
+    line-height: 1.45;
+    white-space: pre-line;
+  }
+  .pick-player { color: var(--win-player); }
+  .pick-banker { color: var(--win-banker); }
+  .pick-tie { color: var(--win-tie); }
+  .pick-pending { color: #64748b; }
   .history-list {
     margin-top: 10px;
     max-height: 320px;
@@ -274,20 +227,13 @@
     flex-direction: column;
     gap: 10px;
   }
-
-  .history-empty {
-    color: var(--muted);
-    font-size: 14px;
-    padding: 8px 0;
-  }
-
+  .history-empty { color: var(--muted); font-size: 14px; padding: 8px 0; }
   .history-item {
     border: 1px solid var(--border);
     border-radius: 14px;
     padding: 12px;
     background: #fff;
   }
-
   .history-top {
     display: flex;
     justify-content: space-between;
@@ -295,19 +241,8 @@
     align-items: flex-start;
     flex-wrap: wrap;
   }
-
-  .history-cards {
-    font-size: 14px;
-    line-height: 1.6;
-  }
-
-  .history-smr {
-    color: #6b7280;
-    font-size: 13px;
-    margin-top: 8px;
-    line-height: 1.5;
-  }
-
+  .history-cards { font-size: 14px; line-height: 1.6; }
+  .history-smr { color: #6b7280; font-size: 13px; margin-top: 8px; line-height: 1.5; }
   .history-result {
     font-size: 14px;
     font-weight: 800;
@@ -315,17 +250,9 @@
     padding: 6px 10px;
     background: #f8fafc;
   }
-
   .hit { color: #065f46; background: #ecfdf5; }
   .miss { color: #991b1b; background: #fef2f2; }
   .draw { color: #475569; background: #f8fafc; }
-
-  button.key:active,
-  .clear-btn-inline:active,
-  .next-btn:active,
-  .history-clear-btn:active {
-    transform: scale(0.98);
-  }
 
   @media (max-width: 500px) {
     .container { padding: 10px; }
@@ -337,11 +264,10 @@
     .winner-text { font-size: 21px; }
     .score-badge { min-width: 84px; font-size: 14px; padding: 7px 10px; }
     .detail-text { font-size: 14px; }
-    .smr-grid { grid-template-columns: 1fr; }
-    .buttons { grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 5px; grid-template-rows: repeat(2, auto); }
+    .buttons { gap: 5px; }
     button.key { min-height: 42px; padding: 8px 2px; font-size: 13px; border-radius: 10px; }
     .clear-btn-inline, .next-btn, .history-clear-btn { padding: 6px 9px; font-size: 12px; }
-    .smr-pick { font-size: 20px; }
+    .smr-grid { grid-template-columns: 1fr; }
   }
 </style>
 </head>
@@ -357,7 +283,6 @@
           <div class="cell empty p3 span2" data-index="4"></div>
         </div>
       </div>
-
       <div class="side banker-side">
         <div class="title">BANKER<span class="sub-title">莊家</span></div>
         <div class="grid">
@@ -383,6 +308,35 @@
       <div class="detail-text">
         <div class="detail-label">判斷資訊</div>
         <div id="detailText">請依序輸入牌面</div>
+      </div>
+    </div>
+
+    <div class="buttons-wrap">
+      <div class="section-title">牌面鍵</div>
+      <div class="buttons" id="buttons"></div>
+    </div>
+
+    <div class="smr-card">
+      <div class="section-title">SMR 預測</div>
+      <div style="font-size:14px;color:#475569;">依你提供的 S / M / R 規則即時判定</div>
+      <div class="smr-grid">
+        <div class="smr-box">
+          <div class="smr-name">S</div>
+          <div class="smr-pick pick-pending" id="sPick">待輸入</div>
+          <div class="smr-meta" id="sMeta">分數：-</div>
+        </div>
+        <div class="smr-box">
+          <div class="smr-name">M（矩陣）</div>
+          <div class="smr-pick pick-pending" id="mPick">待輸入</div>
+          <div class="smr-meta" id="mMeta">點差：-
+公牌奇偶：-</div>
+        </div>
+        <div class="smr-box">
+          <div class="smr-name">R（跑牌值）</div>
+          <div class="smr-pick pick-pending" id="rPick">待輸入</div>
+          <div class="smr-meta" id="rMeta">尾數：-
+翻邊：-</div>
+        </div>
       </div>
     </div>
 
@@ -506,7 +460,7 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   function evaluateS(allCards) {
-    if (allCards.length === 0) return { pick: '待輸入', meta: '分數：-', raw: null };
+    if (allCards.length === 0) return { pick: '待輸入', meta: '分數：-' };
     let score = 0;
     allCards.forEach((card) => {
       if (card === '8') score += 4;
@@ -514,13 +468,12 @@ document.addEventListener('DOMContentLoaded', function () {
       else if (card === '2' || card === '3') score += 2;
       else if (card === '4' || card === '5') score += 1;
     });
-    return { pick: score > 5 ? '閒' : '莊', meta: `分數：${score}`, raw: score };
+    return { pick: score > 5 ? '閒' : '莊', meta: `分數：${score}` };
   }
 
   function evaluateM(playerCards, bankerCards, allCards) {
     if (playerCards.length < 2 || bankerCards.length < 2) {
-      return { pick: '待輸入', meta: '點差：-
-公牌奇偶：-', raw: null };
+      return { pick: '待輸入', meta: '點差：-\n公牌奇偶：-' };
     }
     const playerTotalRaw = playerCards.reduce((s, c) => s + getValue(c), 0);
     const bankerTotalRaw = bankerCards.reduce((s, c) => s + getValue(c), 0);
@@ -532,16 +485,13 @@ document.addEventListener('DOMContentLoaded', function () {
     const pick = finalSign === '正' ? '閒' : '莊';
     return {
       pick,
-      meta: `點差：${diff}（閒${playerTotalRaw} - 莊${bankerTotalRaw}）
-公牌奇偶：${publicCount}${publicCount % 2 === 0 ? '張=正' : '張=負'}`,
-      raw: { diff, publicCount, finalSign },
+      meta: `點差：${diff}\n公牌奇偶：${publicCount % 2 === 0 ? '正' : '負'}`
     };
   }
 
   function evaluateR(playerCards, bankerCards, allCards) {
     if (playerCards.length < 2 || bankerCards.length < 2) {
-      return { pick: '待輸入', meta: '尾數：-
-翻邊：-', raw: null };
+      return { pick: '待輸入', meta: '尾數：-\n翻邊：-' };
     }
     const playerRaw = playerCards.reduce((s, c) => s + getValue(c), 0);
     const bankerRaw = bankerCards.reduce((s, c) => s + getValue(c), 0);
@@ -551,8 +501,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const publicCount = allCards.filter((c) => ['10', 'J', 'Q', 'K'].includes(c)).length;
     const flip = totalCards === 5 || totalCards === 6 || (totalCards === 4 && publicCount === 0);
     const pick = flip ? (basePick === '閒' ? '莊' : '閒') : basePick;
-    return { pick, meta: `尾數：${tail}
-翻邊：${flip ? '是' : '否'}`, raw: { tail, flip } };
+    return { pick, meta: `尾數：${tail}\n翻邊：${flip ? '是' : '否'}` };
   }
 
   function getRoundState() {
@@ -593,7 +542,7 @@ document.addEventListener('DOMContentLoaded', function () {
       info,
       s: evaluateS(allCards),
       m: evaluateM(playerCards, bankerCards, allCards),
-      r: evaluateR(playerCards, bankerCards, allCards),
+      r: evaluateR(playerCards, bankerCards, allCards)
     };
   }
 
@@ -650,15 +599,8 @@ document.addEventListener('DOMContentLoaded', function () {
     return prediction === actual ? '準' : '失敗';
   }
 
-  function getHistoryClass(status) {
-    if (status === '準') return 'history-result hit';
-    if (status === '失敗') return 'history-result miss';
-    return 'history-result draw';
-  }
-
   function renderHistory() {
     const list = document.getElementById('historyList');
-    if (!list) return;
     if (historyData.length === 0) {
       list.innerHTML = '<div class="history-empty">目前還沒有歷史紀錄</div>';
       return;
@@ -696,7 +638,7 @@ document.addEventListener('DOMContentLoaded', function () {
       rPick: state.r.pick,
       sStatus: getHistoryStatus(state.s.pick, state.actual),
       mStatus: getHistoryStatus(state.m.pick, state.actual),
-      rStatus: getHistoryStatus(state.r.pick, state.actual),
+      rStatus: getHistoryStatus(state.r.pick, state.actual)
     });
     renderHistory();
     clearBoard();
